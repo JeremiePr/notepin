@@ -66,6 +66,16 @@ namespace notepin.api.Repository.Impl
         {
             try
             {
+                if(profileId == profile.Id)
+                {
+                    var item = _context.Profiles
+                    .FirstOrDefault(e => e.Id == profileId);
+                    if(item != null)
+                    {
+                        _context.Profiles.Update(profile);
+                    }
+                }
+
                 if(profileId == profile.Id && _context.Profiles.FirstOrDefault(e => e.Id == profileId) != null)
                 {
                     _context.Profiles.Update(profile);
