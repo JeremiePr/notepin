@@ -25,6 +25,13 @@ namespace notepin.api.Controllers
             return data;
         }
 
+        [HttpGet("Get/{id}")]
+        public NoteStatus GetById(int id)
+        {
+            var data = _noteStatusRepository.GetById(id);
+            return data;
+        }
+
         [HttpPost("Create")]
         public NoteStatus Create([FromBody]NoteStatus noteStatus)
         {

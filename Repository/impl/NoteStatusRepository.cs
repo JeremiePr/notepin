@@ -61,6 +61,20 @@ namespace notepin.api.Repository.Impl
             }
         }
 
+        public NoteStatus GetById(int id)
+        {
+            try
+            {
+                return _context.NoteStatutes
+                .FirstOrDefault(e => e.Id == id);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
         public NoteStatus Update(int noteStatusId, NoteStatus noteStatus)
         {
             try

@@ -25,6 +25,13 @@ namespace notepin.api.Controllers
             return data;
         }
 
+        [HttpGet("Get/{id}")]
+        public Profile GetById(int id)
+        {
+            var data = _profileRepository.GetById(id);
+            return data;
+        }
+
         [HttpPost("Create")]
         public Profile Create([FromBody]Profile profile)
         {

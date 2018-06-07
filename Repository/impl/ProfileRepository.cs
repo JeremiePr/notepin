@@ -62,6 +62,20 @@ namespace notepin.api.Repository.Impl
             }
         }
 
+        public Profile GetById(int id)
+        {
+            try
+            {
+                return _context.Profiles
+                .FirstOrDefault(e => e.Id == id);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+                return null;
+            }
+        }
+
         public Profile Update(int profileId, Profile profile)
         {
             try
@@ -74,11 +88,6 @@ namespace notepin.api.Repository.Impl
                     {
                         _context.Profiles.Update(profile);
                     }
-                }
-
-                if(profileId == profile.Id && _context.Profiles.FirstOrDefault(e => e.Id == profileId) != null)
-                {
-                    _context.Profiles.Update(profile);
                 }
                 return profile;
             }

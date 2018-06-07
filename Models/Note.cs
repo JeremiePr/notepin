@@ -17,7 +17,7 @@ namespace notepin.api.Models
         public string Text { get; set; }
 
         [Column("note_date")]
-        public DateTime? NodeDate { get; set; }
+        public DateTime? NoteDate { get; set; }
 
         [Column("person_id")]
         public int? PersonId { get; set; }
